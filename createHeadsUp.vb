@@ -9,12 +9,14 @@ Dim olMsg As Object
 templatePath = "G:\Opening Team\2_Heads Up\HeadsUpTemplate.msg"
 'Open the template file
 Set olMsg = olApp.Session.OpenSharedItem(templatePath)
+'In order to keep from corrupting the template resave in win temp folder
+olMsg.SaveAs "C:\Windows\Temp\HeadsUp.msg"
+Set olMsg = olApp.Session.OpenSharedItem("C:\Windows\Temp\HeadsUp.msg")
 
 'The following two commands maybe necessary to fully initialize Outlook automation
 ' Get a session object.
 Dim olNs As Outlook.Namespace
 Set olNs = olApp.GetNamespace("MAPI")
-
 ' Create an instance of the Inbox folder.
 ' If Outlook is not already running, this has the side effect of initializing MAPI.
 Dim mailFolder As Outlook.Folder
