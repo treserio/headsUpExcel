@@ -29,6 +29,8 @@ hlNum = InputBox("Input the HL Number")
 
 'Create Subject line string  Example( Heads Up, CaseName; Claim No. #### ; HL No. #### ; )
 subj = "Heads Up, " & caseName & "; Claim No. " & claimNum & "; HL No. " & hlNum
+'Create the link to the adjuster file
+adjLink = "<a href='\\holden-fs01\Common\Cases\" & caseName & " " & hlNum & "\1.2 Adjuster File'>Adjuster Folder Link</a>"
 
 'Set email values
 '[Lookup][D5] = Lead Email, [Lookup][D9] = Senior Email, [Lookup][D13] = Paralegal Email
@@ -51,6 +53,9 @@ msgBdy = Replace(msgBdy, "Srinits", UCase(ActiveWorkbook.Sheets("Lookup").Range(
 msgBdy = Replace(msgBdy, "Parainits", UCase(ActiveWorkbook.Sheets("Lookup").Range("B13")))
 '[Lookup][B14] = Paralegal Assistant Inits
 msgBdy = Replace(msgBdy, "ParaAssistinits", UCase(ActiveWorkbook.Sheets("Lookup").Range("B14")))
+'adjLink = LinkAdjusterFile
+msgBdy = Replace(msgBdy, "LinkAdjusterFile", adjLink)
+
 'Replace actual message body with string
 olMsg.HTMLBody = msgBdy
 
