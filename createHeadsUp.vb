@@ -30,7 +30,7 @@ hlNum = InputBox("Input the HL Number")
 'Create Subject line string  Example( Heads Up, CaseName; Claim No. #### ; HL No. #### ; )
 subj = "Heads Up, " & caseName & "; Claim No. " & claimNum & "; HL No. " & hlNum
 'Create the link to the adjuster file
-adjLink = "<a href='\\holden-fs01\Common\Cases\" & caseName & " " & hlNum & "\1.2 Adjuster File'>Adjuster Folder Link</a>"
+adjLink = "<a href=""\\holden-fs01\Common\Cases\" & caseName & " " & hlNum & "\1.2 Adjuster File""">Adjuster Folder Link</a>"
 
 'Set email values
 '[Lookup][D5] = Lead Email, [Lookup][D9] = Senior Email, [Lookup][D13] = Paralegal Email
